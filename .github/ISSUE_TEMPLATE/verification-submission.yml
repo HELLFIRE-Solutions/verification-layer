@@ -1,0 +1,52 @@
+name: Verification submission
+description: Apply for delivery-pool admission for one module/vector, backed by a merged PR in that module's repo.
+title: "[verify] <github-username> — <module-code>"
+labels: ["verification-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing this: you should already have a **merged** pull request in the
+        target module's repo, opened per that repo's `CONTRIBUTING.md` (issue first,
+        then a scoped PR). This form is the application that evidence feeds into —
+        not a substitute for it. See [docs/PROCESS.md](../../docs/PROCESS.md).
+
+  - type: input
+    id: github_username
+    attributes:
+      label: GitHub username
+      description: The account that authored the merged PR.
+    validations:
+      required: true
+
+  - type: input
+    id: module_code
+    attributes:
+      label: Module code
+      description: Must match a repo slug under hellfire-ai/ (e.g. `gtm-agent`, `office-agent`, `rag-01`, `uni-tag`, `mcp-dev`, `inhouse-llm`, `compliance-layer`, `onboarding`).
+    validations:
+      required: true
+
+  - type: input
+    id: vector
+    attributes:
+      label: Vector / sub-area (optional)
+      description: If the module has distinguishable sub-areas (e.g. gtm-agent's HubSpot integration vs. its orchestrator), name the one your PR demonstrates.
+    validations:
+      required: false
+
+  - type: input
+    id: evidence_url
+    attributes:
+      label: Merged PR URL
+      description: The single strongest piece of evidence. Link the merged PR, not a fork, branch, or open PR.
+    validations:
+      required: true
+
+  - type: textarea
+    id: relevance_note
+    attributes:
+      label: Why this PR demonstrates the module/vector you want to sell
+      description: 2-4 sentences. What does it implement, and how does it map to the module's README?
+    validations:
+      required: true

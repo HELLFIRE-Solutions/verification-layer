@@ -1,0 +1,23 @@
+# Sample only — not a real submission, not under submissions/ so it's never
+# picked up by `verification-layer list`/`sync-db`. Shows the file shape a
+# decided submission ends up in after `submit` + `decide`.
+github_username: octocat
+module_code: gtm-agent
+vector: hubspot-integration
+evidence_url: https://github.com/HELLFIRE-Solutions/gtm-agent/pull/12
+relevance_note: >-
+  Implemented HubSpot contact upsert + legitimate-interest note logging,
+  matching the integration point described in gtm-agent's architecture.md.
+submitted_at: '2026-07-21T09:00:00+00:00'
+status: verified
+score:
+  relevance: 3
+  functionality: 3
+  scope_discipline: 3
+  originality: 2
+evaluated_by: bob
+notes: >-
+  Squarely on-vector, ran it locally against a HubSpot sandbox, scoped PR.
+  Docked one point on originality — closely follows gtm-agent's existing
+  hubspot.py client shape rather than introducing an independent approach.
+decided_at: '2026-07-21T14:30:00+00:00'

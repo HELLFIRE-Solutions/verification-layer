@@ -1,0 +1,27 @@
+[project]
+name = "verification-layer"
+version = "0.1.0"
+description = "HELLFIRE contractor verification — GitHub-proof-based pool admission, cross-cutting infra"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+db = [
+    "psycopg[binary]>=3.1.0",
+]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+verification-layer = "verification_layer.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
