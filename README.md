@@ -1,18 +1,18 @@
 # HELLFIRE AI Solutions — Verification Layer
 
-Наскрізна інфраструктура (не модуль). GitHub-based верифікація фахівців перед допуском у пул виконавців: публічний GitHub-доказ релевантної реалізації модуля/вектора — не резюме, не диплом. Базовий процес (issue → форк → скоуп-ний PR) описаний у [`hellfire-ai/.github`'s CONTRIBUTING.md](https://github.com/HELLFIRE-Solutions/.github/blob/main/CONTRIBUTING.md); цей репозиторій — те, що відбувається *після* мерджу PR: заявка на допуск у пул, оцінка релевантності, синк статусу.
+Cross-cutting infrastructure (not a module). GitHub-based verification of contractors before pool admission: public GitHub proof of a relevant implementation of a module/vector — not a résumé, not a diploma. The basic process (issue → fork → scoped PR) is described in [`hellfire-ai/.github`'s CONTRIBUTING.md](https://github.com/HELLFIRE-Solutions/.github/blob/main/CONTRIBUTING.md); this repo is what happens *after* the PR merges: pool-admission application, relevance scoring, status sync.
 
-Пов'язано з `internal-db` (сесія 04, статус верифікації) і майбутнім Nostr Time-Tracker (сесія 14, верифікований GitHub-профіль стає першим записом track record). Той самий принцип верифікації (TWIRA — Trust-Weighted Intent Routing з TETA+PI) застосовується і до людей, і до AI-агентів — деталі в [`docs/CRITERIA.md`](docs/CRITERIA.md#same-rubric-human-or-ai).
+Related to `internal-db` (session 04, verification status) and the future Nostr Time-Tracker (session 14, a verified GitHub profile becomes the first track-record entry). The same verification principle (TWIRA — Trust-Weighted Intent Routing, from TETA+PI) applies to both people and AI agents — details in [`docs/CRITERIA.md`](docs/CRITERIA.md#same-rubric-human-or-ai).
 
-## Документація
+## Documentation
 
-- [`docs/PROCESS.md`](docs/PROCESS.md) — наскрізний процес подачі заявки, 7 кроків від issue в модулі до синку в internal-db.
-- [`docs/CRITERIA.md`](docs/CRITERIA.md) — рубрика оцінки (4 виміри, 0–3 кожен, поріг верифікації) + що вважається релевантним для кожного з 8 продаваних модулів.
-- [`docs/INTERNAL_DB_SYNC.md`](docs/INTERNAL_DB_SYNC.md) — як і чому синк в `crm.contractors` — тільки UPDATE, без INSERT (немає легітимного джерела `full_name`).
-- [`docs/NOSTR_HANDOFF.md`](docs/NOSTR_HANDOFF.md) — контракт даних для сесії 14 (яка ще не почата).
-- [`.github/ISSUE_TEMPLATE/verification-submission.yml`](.github/ISSUE_TEMPLATE/verification-submission.yml) — форма заявки.
+- [`docs/PROCESS.md`](docs/PROCESS.md) — the end-to-end application process, 7 steps from a module issue to the internal-db sync.
+- [`docs/CRITERIA.md`](docs/CRITERIA.md) — scoring rubric (4 dimensions, 0–3 each, verification threshold) + what counts as relevant for each of the 8 sellable modules.
+- [`docs/INTERNAL_DB_SYNC.md`](docs/INTERNAL_DB_SYNC.md) — how and why the sync into `crm.contractors` is UPDATE-only, never INSERT (no legitimate source for `full_name`).
+- [`docs/NOSTR_HANDOFF.md`](docs/NOSTR_HANDOFF.md) — data contract for session 14 (not started yet).
+- [`.github/ISSUE_TEMPLATE/verification-submission.yml`](.github/ISSUE_TEMPLATE/verification-submission.yml) — the application form.
 
-## Швидкий старт
+## Quick start
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
@@ -29,17 +29,17 @@ verification-layer decide submissions/octocat/gtm-agent.yaml \
 
 verification-layer list
 
-cp .env.example .env  # DATABASE_URL, тільки для sync-db
+cp .env.example .env  # DATABASE_URL, only needed for sync-db
 verification-layer sync-db submissions/octocat/gtm-agent.yaml
 ```
 
-`pytest tests/` — 8 тестів (модель + валідація рубрики, YAML store round-trip).
+`pytest tests/` — 8 tests (model + rubric validation, YAML store round-trip).
 
-## Свідомі рішення
+## Deliberate decisions
 
-- **Не автоматизований scoring gate.** `decide` завжди вимагає людину-рев'юєра (`--by`) і нотатки — фіксовано після того, як сесія 11 (compliance-layer) позначила ризик дрейфу у AI Act Annex III (high-risk), якби це стало автоматизованим найм-гейтом без людини в циклі.
-- **Файли, не БД, для деталей заявки.** `submissions/*.yaml` — публічний, git-tracked аудиторський слід; `internal-db` отримує лише грубий підсумок (verified/rejected), не деталі скорингу.
+- **No automated scoring gate.** `decide` always requires a human reviewer (`--by`) and notes — locked in after session 11 (compliance-layer) flagged the risk of drifting into AI Act Annex III (high-risk) if this became an automated hiring gate with no human in the loop.
+- **Files, not a DB, for application detail.** `submissions/*.yaml` is a public, git-tracked audit trail; `internal-db` only gets the coarse summary (verified/rejected), not the scoring detail.
 
-**Статус:** Задачі 1–4 з kickoff-промпту виконані (процес, критерії, internal-db синк, nostr-tracker handoff). Не протестовано проти живого Postgres (той самий блокер, що й у internal-db — немає psql/docker на цій машині).
+**Status:** Tasks 1–4 from the kickoff prompt are done (process, criteria, internal-db sync, nostr-tracker handoff). Not tested against a live Postgres (same blocker as internal-db — no psql/docker on this machine).
 
-**Ліцензія:** MIT.
+**License:** MIT.
