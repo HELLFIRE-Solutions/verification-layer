@@ -1,6 +1,6 @@
 # HELLFIRE AI Solutions — Verification Layer
 
-Cross-cutting infrastructure (not a module). GitHub-based verification of contractors before pool admission: public GitHub proof of a relevant implementation of a module/vector — not a résumé, not a diploma. The basic process (issue → fork → scoped PR) is described in [`hellfire-ai/.github`'s CONTRIBUTING.md](https://github.com/HELLFIRE-Solutions/.github/blob/main/CONTRIBUTING.md); this repo is what happens *after* the PR merges: pool-admission application, relevance scoring, status sync.
+Cross-cutting infrastructure (not a module). GitHub-based verification of contractors before pool admission: public GitHub proof of a relevant implementation of a module/vector — not a résumé, not a diploma. The basic process (issue → fork → scoped PR) is described in [`HELLFIRE-Solutions/.github`'s CONTRIBUTING.md](https://github.com/HELLFIRE-Solutions/.github/blob/main/CONTRIBUTING.md); this repo is what happens *after* the PR merges: pool-admission application, relevance scoring, status sync.
 
 Related to `internal-db` (session 04, verification status) and the future Nostr Time-Tracker (session 14, a verified GitHub profile becomes the first track-record entry). The same verification principle (TWIRA — Trust-Weighted Intent Routing, from TETA+PI) applies to both people and AI agents — details in [`docs/CRITERIA.md`](docs/CRITERIA.md#same-rubric-human-or-ai).
 
