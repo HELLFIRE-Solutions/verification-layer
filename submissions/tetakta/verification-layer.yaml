@@ -1,0 +1,35 @@
+github_username: tetakta
+module_code: verification-layer
+evidence_url: https://github.com/HELLFIRE-Solutions/verification-layer/pull/1
+relevance_note: PR fixes 3 stale hellfire-ai org-slug references (README.md, docs/PROCESS.md,
+  .github/ISSUE_TEMPLATE/verification-submission.yml) to the real org HELLFIRE-Solutions.
+  Applying as a PR against verification-layer itself (infra vector, per CRITERIA.md's
+  own carve-out for this repo), not a client-sellable module.
+submitted_at: '2026-08-20T20:25:23.625934Z'
+status: rejected
+score:
+  relevance: 3
+  functionality: 2
+  scope_discipline: 0
+  originality: 1
+evaluated_by: Bob
+notes: 'Relevance 3/3: PR is squarely a self-PR against verification-layer, matching
+  criteria.py''s explicit carve-out for this repo (applying to work on the infra itself).
+  Functionality 2/3: does exactly what it claims -- verified via ''grep -rn hellfire-ai
+  .'' returning zero matches after the change; docs/config only, so no test coverage
+  or edge-case handling exists to earn a 3. Scope discipline 0/3: this is a 5-line
+  diff across 3 files (5 additions, 5 deletions per ''gh pr view''), which is a textbook
+  instance of the rubric''s own 0-bucket -- ''trivial (few-line) change'' -- regardless
+  of it being a real and useful fix; also no issue-then-PR trail (went branch->PR
+  directly, no linked issue). Originality 1/3: a mechanical find-and-correct of one
+  wrong string across a repo, no design decisions, naming, or structural tradeoffs
+  visible in the diff. Total 6/12, but CRITERIA.md is explicit that a 0 in any single
+  dimension disqualifies regardless of total (its own ''3/3/3/0 does not pass'' example)
+  -- rejected on scope discipline alone. This is a legitimate real-world result, not
+  a process failure: the org''s actual proof-of-work practice so far is direct-to-main
+  pushes (per STATE.md), and this PR was deliberately picked by the Session Manager
+  as a low-risk, genuine fix rather than a large feature -- exactly the shape the
+  rubric is designed to catch and correctly rejects. Re-application is open per PROCESS.md;
+  a submission backed by a substantive feature PR (e.g. real logic added/changed with
+  test coverage) would very plausibly clear the bar.'
+decided_at: '2026-08-20T20:25:35.091568Z'
