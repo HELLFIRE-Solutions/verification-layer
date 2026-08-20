@@ -1,19 +1,19 @@
 # Submission process
 
 Narrow scope: this repo does not host the proof-of-work itself — that lives in the
-target module's own repo, per `hellfire-ai/.github`'s `CONTRIBUTING.md`. This repo
+target module's own repo, per `HELLFIRE-Solutions/.github`'s `CONTRIBUTING.md`. This repo
 only tracks *applications for pool admission* built on top of that proof, and syncs
 the resulting decision into `internal-db`.
 
 ## End-to-end flow
 
 1. **Implement, in the open module repo.** Contractor follows `CONTRIBUTING.md`:
-   opens an issue on the target module (e.g. `hellfire-ai/gtm-agent`) describing
+   opens an issue on the target module (e.g. `HELLFIRE-Solutions/gtm-agent`) describing
    what they'll build, forks, implements against that module's README, opens a PR
    scoped to one module/one concern, gets it merged.
 2. **Apply for verification, here.** Once the PR is merged, the contractor opens a
    [verification submission issue](../.github/ISSUE_TEMPLATE/verification-submission.yml)
-   in `hellfire-ai/verification-layer` naming: GitHub username, target module code
+   in `HELLFIRE-Solutions/verification-layer` naming: GitHub username, target module code
    (must match a `crm.modules.code` / repo slug), optional vector/sub-area within
    that module, and the merged PR URL as evidence. One issue per module/vector —
    a contractor selling three modules submits three separate applications, each
